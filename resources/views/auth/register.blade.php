@@ -66,7 +66,7 @@
                             <span class="checkmark"></span>
                         </label>
                         <label for="client">Admin
-                            <input type="radio" value="6" id="admin" name="role_id">
+                            <input type="radio" value="5" id="admin" name="role_id">
                             <span class="checkmark"></span>
                         </label>
                     </div>
