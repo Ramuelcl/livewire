@@ -3,11 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Role;
 
 // Spatie
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\PermissionRegistrar;
+// use Spatie\Permission\Models\Role;
+// use Spatie\Permission\Models\Permission;
+// use Spatie\Permission\PermissionRegistrar;
 
 class RolesAndPermissionsSeeder extends Seeder
 {
@@ -40,23 +41,23 @@ class RolesAndPermissionsSeeder extends Seeder
 
         ];
         // Reset cached roles and permissions
-        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+        // app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // create permissions
-        foreach ($permisos as $key => $value) {
-            Permission::create(['name'=>$value]);//, 'guard_name'=>'web'
-        }
+        // foreach ($permisos as $key => $value) {
+        //     Permission::create(['name'=>$value]);//, 'guard_name'=>'web'
+        // }
 
         // create roles and assign created permissions
         foreach ($roles as $key => $value) {
             $role = Role::create(['name'=>$value]);//,'guard_name' => 'web'
-            if ($value=='guest') {
-                // dd($value);
-                $role->givePermissionTo(['access']);
-            } elseif ($value=='super-admin') {
-                $role->givePermissionTo(Permission::all());
-                // dd($value);
-            }
+            // if ($value=='guest') {
+            //     // dd($value);
+            //     $role->givePermissionTo(['access']);
+            // } elseif ($value=='super-admin') {
+            //     $role->givePermissionTo(Permission::all());
+            //     // dd($value);
+            // }
         }
     }
 }
