@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Home
+    Homes
 @endsection
 @section('content')
     <h1>Salut usuario: {{ auth()->user()->name }}</h1>
