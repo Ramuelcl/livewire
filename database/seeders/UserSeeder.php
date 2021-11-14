@@ -10,9 +10,10 @@ use Illuminate\Support\Str;
 // use Spatie\Permission\Models\model_has_permissions;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Permission;
+
+// use Spatie\Permission\Models\Permission;
 
 class UserSeeder extends Seeder
 {
@@ -28,6 +29,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@email.com',
             'email_verified_at' => now(),
             'password' => Hash::make('admin'), //bcrypt('admin')
+            'role_id'=>6,
             'remember_token' => Str::random(10),
 
         ]);
@@ -43,6 +45,7 @@ class UserSeeder extends Seeder
             'email' => 'guest@email.com',
             'email_verified_at' => now(),
             'password' => Hash::make('guest'), //bcrypt('guest'),
+            'role_id'=>1,
             'remember_token' => Str::random(10),
         ]);
         //                        $user->syncRoles('guest');

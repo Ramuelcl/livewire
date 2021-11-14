@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserSeeder::class);
         // una llamada general
         $this->call([
-            // RolesAndPermissionsSeeder::class,
+            RolesAndPermissionsSeeder::class,
             UserSeeder::class,
             // PostSeeder::class,
             // CommentSeeder::class,
