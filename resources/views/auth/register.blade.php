@@ -4,7 +4,9 @@
 @endsection
 @section('content')
     <div class="card card-primary">
-        <div class="card-header"><h4>Register</h4></div>
+        <div class="card-header">
+            <h4>Register</h4>
+        </div>
 
         <div class="card-body pt-1">
             <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
@@ -12,13 +14,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="first_name">Full Name:</label><span
-                                    class="text-danger">*</span>
+                            <label for="first_name">Full Name:</label><span class="text-danger">*</span>
                             <input id="firstName" type="text"
-                                   class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                   name="name"
-                                   tabindex="1" placeholder="Enter Full Name" value="{{ old('name') }}"
-                                   autofocus required>
+                                class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"
+                                tabindex="1" placeholder="Enter Full Name" value="{{ old('name') }}" autofocus required>
                             <div class="invalid-feedback">
                                 {{ $errors->first('name') }}
                             </div>
@@ -26,13 +25,11 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email">Email:</label><span
-                                    class="text-danger">*</span>
+                            <label for="email">Email:</label><span class="text-danger">*</span>
                             <input id="email" type="email"
-                                   class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                   placeholder="Enter Email address" name="email" tabindex="1"
-                                   value="{{ old('email') }}"
-                                   required autofocus>
+                                class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                placeholder="Enter Email address" name="email" tabindex="1" value="{{ old('email') }}"
+                                required autofocus>
                             <div class="invalid-feedback">
                                 {{ $errors->first('email') }}
                             </div>
@@ -41,11 +38,10 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="password" class="control-label">Password
-                                :</label><span
-                                    class="text-danger">*</span>
+                                :</label><span class="text-danger">*</span>
                             <input id="password" type="password"
-                                   class="form-control{{ $errors->has('password') ? ' is-invalid': '' }}"
-                                   placeholder="Set account password" name="password" tabindex="2" required>
+                                class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                placeholder="Set account password" name="password" tabindex="2" required>
                             <div class="invalid-feedback">
                                 {{ $errors->first('password') }}
                             </div>
@@ -53,17 +49,32 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="password_confirmation"
-                                   class="control-label">Confirm Password:</label><span
-                                    class="text-danger">*</span>
+                            <label for="password_confirmation" class="control-label">Confirm Password:</label><span
+                                class="text-danger">*</span>
                             <input id="password_confirmation" type="password" placeholder="Confirm account password"
-                                   class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid': '' }}"
-                                   name="password_confirmation" tabindex="2">
+                                class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}"
+                                name="password_confirmation" tabindex="2">
                             <div class="invalid-feedback">
                                 {{ $errors->first('password_confirmation') }}
                             </div>
                         </div>
                     </div>
+                    <p for="role-select" class="font-semibold text-gray-700">Je veux être :</p>
+                    <div class="flex justify-between items-center">
+                        <label for="freelance">Guest
+                            <input type="radio" value="1" id="guest" name="role_id">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="client">Admin
+                            <input type="radio" value="6" id="admin" name="role_id">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    @error('role_id')
+                        <span class="text-red-400 text-sm block">{{ $message }}</span>
+                    @enderror
+
+
                     <div class="col-md-12 mt-4">
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
@@ -76,7 +87,6 @@
         </div>
     </div>
     <div class="mt-5 text-muted text-center">
-        Already have an account ? <a
-                href="{{ route('login') }}">SignIn</a>
+        Already have an account ? <a href="{{ route('login') }}">SignIn</a>
     </div>
 @endsection

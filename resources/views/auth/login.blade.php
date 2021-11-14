@@ -58,21 +58,6 @@
                         <label class="custom-control-label" for="remember">Remember Me</label>
                     </div>
                 </div>
-                <p for="role-select" class="font-semibold text-gray-700">Je veux être :</p>
-                <div class="flex justify-between items-center">
-                    <label for="freelance">Guest
-                        <input type="radio" value="1" id="guest" name="role_id">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label for="client">Admin
-                        <input type="radio" value="6" id="admin" name="role_id">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-                @error('role_id')
-                    <span class="text-red-400 text-sm block">{{ $message }}</span>
-                @enderror
-
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                         Login
