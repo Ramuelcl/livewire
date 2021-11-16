@@ -28,11 +28,11 @@
 
 <body>
 
-    <div id="app">
+    <div id="app" class="container mx-auto px-4">
         <div class="main-wrapper main-wrapper-1">
             <div class="navbar-bg"></div>
             <nav class="navbar navbar-expand-lg main-navbar">
-                @include('layouts.partials.header')
+                @include('layouts.partials.navbar')
 
             </nav>
             <div class="main-sidebar main-sidebar-postion">
