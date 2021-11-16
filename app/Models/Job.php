@@ -10,6 +10,12 @@ class Job extends Model
 {
     use HasFactory;
 
+    public function scopeOnline($query)
+    {
+        // dd($query);
+        return $query->where('status', 1);
+    }
+
     /**
      * Get the user that owns the Job
      *

@@ -9,6 +9,9 @@ class JobController extends Controller
 {
     public function index()
     {
-        return Job::all();
+        $jobs = Job::online()->latest()->get();
+        return view('jobs.index', [
+            'jobs'=>$jobs,
+        ]);
     }
 }
